@@ -1,4 +1,4 @@
-package drone
+package main
 
 import (
     _ "encoding/base64"
