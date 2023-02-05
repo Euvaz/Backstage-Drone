@@ -5,10 +5,8 @@ import (
 	"encoding/base64"
 	"encoding/json"
 	"fmt"
-	_ "io"
-	"log"
+    "net/url"
 	"net/http"
-	_ "os"
 
 	"github.com/Euvaz/Backstage-Hive/logger"
 	"github.com/spf13/viper"
@@ -27,7 +25,7 @@ func enroll(tokenEncoded string) {
     if err != nil {
         logger.Fatal(err.Error())
     }
-    
+
     // Convert []Byte type to Token
     err = json.Unmarshal(tokenBytes, &token)
     if err != nil {
@@ -36,15 +34,20 @@ func enroll(tokenEncoded string) {
 
     // POST request
     // JSON body
-	body := []byte(fmt.Sprintf(`{
-		"token": %s
-	}`, token.Key))
+	body := []byte(fmt.Sprintf(`{"key":"%s"}`, token.Key))
+    
+    // Convert String type to URL
+    postUrl, err := url.Parse(fmt.Sprintf("http://%s", token.Addr))
+    if err != nil {
+        logger.Fatal(err.Error())
+    }
 
-    // Create a HTTP post request
-	r, err := http.NewRequest("POST", token.Addr, bytes.NewBuffer(body))
+    // Create an HTTP post request
+    r, err := http.NewRequest("POST", postUrl.String(), bytes.NewBuffer(body))
 	if err != nil {
 		logger.Fatal(err.Error())
 	}
+
     r.Header.Add("Content-Type", "application/json")
     client := &http.Client{}
     res, err := client.Do(r)
@@ -52,14 +55,12 @@ func enroll(tokenEncoded string) {
     	logger.Fatal(err.Error())
     }
     defer res.Body.Close()
-
 }
 
 func main() {
-    log.SetFlags(log.Lshortfile)
-    log.SetPrefix("Backstage-Drone: ")
-
     vi := viper.New()
-    vi.SetConfigFile("config.yaml")
+    vi.SetConfigFile("config.toml")
     vi.ReadInConfig()
+
+    //enroll("eyJhZGRyIjoiMTI3LjAuMC4xOjY5NjkiLCJrZXkiOiJ0ZXN0In0=")
 }
