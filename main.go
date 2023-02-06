@@ -78,7 +78,7 @@ func enroll(tokenEncoded string) {
 
     // POST request
     // JSON body
-	body := []byte(fmt.Sprintf(`{"key":"%s"}`, token.Key))
+	body := []byte(fmt.Sprintf(`{"name":"%s","key":"%s"}`, viper.GetString("name"), token.Key))
     
     // Convert String type to URL
     postUrl, err := url.Parse(fmt.Sprintf("http://%s", token.Addr))
