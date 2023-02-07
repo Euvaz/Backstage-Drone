@@ -48,7 +48,45 @@ func main() {
         Long:  `Long Desc`,
         Args: cobra.ExactArgs(1),
         Run: func(cmd *cobra.Command, args []string) {
-            enroll(strings.Join(args, " "))
+            var token Token
+            tokenEncoded := strings.Join(args, " ")
+
+            // Decode Base64 token string
+            tokenBytes, err := base64.StdEncoding.DecodeString(tokenEncoded)
+            if err != nil {
+                logger.Fatal(err.Error())
+            }
+
+            // Convert []Byte type to Token
+            err = json.Unmarshal(tokenBytes, &token)
+            if err != nil {
+                logger.Fatal(err.Error())
+            }
+
+            // POST request
+            // JSON body
+            body := []byte(fmt.Sprintf(`{"key":"%s"}`, token.Key))
+            
+            // Convert String type to URL
+            postUrl, err := url.Parse(fmt.Sprintf("http://%s/drones/%s", token.Addr, viper.GetString("name")))
+            if err != nil {
+                logger.Fatal(err.Error())
+            }
+            fmt.Println(postUrl)
+
+            // Create an HTTP post request
+            r, err := http.NewRequest("POST", postUrl.String(), bytes.NewBuffer(body))
+            if err != nil {
+                logger.Fatal(err.Error())
+            }
+
+            r.Header.Add("Content-Type", "application/json")
+            client := &http.Client{}
+            res, err := client.Do(r)
+            if err != nil {
+                logger.Fatal(err.Error())
+            }
+            defer res.Body.Close()
         },
     }
 
@@ -61,42 +99,3 @@ func main() {
     }
 }
 
-func enroll(tokenEncoded string) {
-    var token Token
-
-    // Decode Base64 token string
-    tokenBytes, err := base64.StdEncoding.DecodeString(tokenEncoded)
-    if err != nil {
-        logger.Fatal(err.Error())
-    }
-
-    // Convert []Byte type to Token
-    err = json.Unmarshal(tokenBytes, &token)
-    if err != nil {
-        logger.Fatal(err.Error())
-    }
-
-    // POST request
-    // JSON body
-	body := []byte(fmt.Sprintf(`{"name":"%s","key":"%s"}`, viper.GetString("name"), token.Key))
-    
-    // Convert String type to URL
-    postUrl, err := url.Parse(fmt.Sprintf("http://%s/drones", token.Addr))
-    if err != nil {
-        logger.Fatal(err.Error())
-    }
-
-    // Create an HTTP post request
-    r, err := http.NewRequest("POST", postUrl.String(), bytes.NewBuffer(body))
-	if err != nil {
-		logger.Fatal(err.Error())
-	}
-
-    r.Header.Add("Content-Type", "application/json")
-    client := &http.Client{}
-    res, err := client.Do(r)
-    if err != nil {
-    	logger.Fatal(err.Error())
-    }
-    defer res.Body.Close()
-}
