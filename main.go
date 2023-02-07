@@ -81,7 +81,7 @@ func enroll(tokenEncoded string) {
 	body := []byte(fmt.Sprintf(`{"name":"%s","key":"%s"}`, viper.GetString("name"), token.Key))
     
     // Convert String type to URL
-    postUrl, err := url.Parse(fmt.Sprintf("http://%s", token.Addr))
+    postUrl, err := url.Parse(fmt.Sprintf("http://%s/drones", token.Addr))
     if err != nil {
         logger.Fatal(err.Error())
     }
