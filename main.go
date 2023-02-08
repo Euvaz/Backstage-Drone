@@ -10,14 +10,10 @@ import (
     "strings"
 
 	"github.com/Euvaz/Backstage-Hive/logger"
+    "github.com/Euvaz/Backstage-Hive/models"
     "github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
-
-type Token struct {
-    Addr    string  `json:"addr"`
-    Key     string  `json:"key"`
-}
 
 func main() {
     viper := viper.New()
@@ -48,7 +44,7 @@ func main() {
         Long:  `Long Desc`,
         Args: cobra.ExactArgs(1),
         Run: func(cmd *cobra.Command, args []string) {
-            var token Token
+            var token models.Token
             tokenEncoded := strings.Join(args, " ")
 
             // Decode Base64 token string
