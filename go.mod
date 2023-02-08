@@ -3,8 +3,8 @@ module github.com/Euvaz/Backstage-Drone
 go 1.19
 
 require (
-	github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208042724-a8d7b4a22d68
-	github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208042724-a8d7b4a22d68
+	github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208193635-92c061e3b302
+	github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208193635-92c061e3b302
 	github.com/spf13/cobra v1.6.1
 	github.com/spf13/viper v1.15.0
 )
@@ -25,7 +25,7 @@ require (
 	go.uber.org/multierr v1.9.0 // indirect
 	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/sys v0.5.0 // indirect
-	golang.org/x/text v0.6.0 // indirect
+	golang.org/x/text v0.7.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
