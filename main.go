@@ -1,18 +1,18 @@
 package main
 
 import (
-	"bytes"
-	"encoding/base64"
-	"encoding/json"
-	"fmt"
+    "bytes"
+    "encoding/base64"
+    "encoding/json"
+    "fmt"
     "net/url"
-	"net/http"
+    "net/http"
     "strings"
 
-	"github.com/Euvaz/Backstage-Hive/logger"
+    "github.com/Euvaz/Backstage-Hive/logger"
     "github.com/Euvaz/Backstage-Hive/models"
     "github.com/spf13/cobra"
-	"github.com/spf13/viper"
+    "github.com/spf13/viper"
 )
 
 func main() {
