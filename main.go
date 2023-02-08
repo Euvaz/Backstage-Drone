@@ -11,6 +11,7 @@ import (
 
     "github.com/Euvaz/Backstage-Hive/logger"
     "github.com/Euvaz/Backstage-Hive/models"
+    "github.com/Euvaz/Backstage-Hive/pkg"
     "github.com/spf13/cobra"
     "github.com/spf13/viper"
 )
@@ -62,9 +63,11 @@ func main() {
                 logger.Fatal(err.Error())
             }
 
+            address, hostname := pkg.ParseHost(viper.GetString("host"))
+
             // POST request
             // JSON body
-            dlvrToken, err := json.Marshal(models.Token{Addr: viper.GetString("host"), Port: viper.GetInt("port"), Key: recvToken.Key})
+            dlvrToken, err := json.Marshal(models.Token{Addr: address, Port: viper.GetInt("port"), Host: hostname, Key: recvToken.Key})
             
             // Convert String type to URL
             postUrl, err := url.Parse(fmt.Sprintf("http://%s:%d/drones/%s", recvToken.Addr, recvToken.Port, viper.GetString("name")))

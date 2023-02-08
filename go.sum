@@ -52,6 +52,10 @@ github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208053655-ce51c127e43e h1:zAp
 github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208053655-ce51c127e43e/go.mod h1:SwmKWGn9h6Cz/HL4xplwt6CRJeJhmiveu+HUJ0A2FPw=
 github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208193635-92c061e3b302 h1:pK8eEzZLLdhey3n8xKHP2vewPwV/WOB+mfM1Zasv870=
 github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208193635-92c061e3b302/go.mod h1:SwmKWGn9h6Cz/HL4xplwt6CRJeJhmiveu+HUJ0A2FPw=
+github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208214835-2f90fe2ac9bf h1:9MizGwQeAkjvYnvCpiFKhN4Ca8pA/fgoDMKCQRFh0U8=
+github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208214835-2f90fe2ac9bf/go.mod h1:SwmKWGn9h6Cz/HL4xplwt6CRJeJhmiveu+HUJ0A2FPw=
+github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208220350-87758b5ac4fa h1:Er6gvN8F26J3R+IaDCkaUUjLh4p0txO+tRz1a0krO4c=
+github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208220350-87758b5ac4fa/go.mod h1:SwmKWGn9h6Cz/HL4xplwt6CRJeJhmiveu+HUJ0A2FPw=
 github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208021021-242510932d0b h1:cjoX89y4HRIubXHYiruipguzgfo7qHwvSxoDvlQ5CBU=
 github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208021021-242510932d0b/go.mod h1:ovwJ3u2t7fBdrXIwdybWZoZEVIhD8p+8bEN6I0peUGg=
 github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208021402-ec1779aa6e8c h1:qGJguEIFY3VGsLpaFCv+DDM0w5TJLuzn+OFu9oEwtLs=
@@ -64,6 +68,10 @@ github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208053655-ce51c127e43e h1:etT
 github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208053655-ce51c127e43e/go.mod h1:ovwJ3u2t7fBdrXIwdybWZoZEVIhD8p+8bEN6I0peUGg=
 github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208193635-92c061e3b302 h1:yNf7hIZCkaRC9qd2skkqw3IXz3BGFx+mcMDeq431sTo=
 github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208193635-92c061e3b302/go.mod h1:ovwJ3u2t7fBdrXIwdybWZoZEVIhD8p+8bEN6I0peUGg=
+github.com/Euvaz/Backstage-Hive/pkg v0.0.0-20230208214835-2f90fe2ac9bf h1:AiAy0Re4ikmKGGf+7AQCSwqqoW9tUEc6hfQwMyqN9b4=
+github.com/Euvaz/Backstage-Hive/pkg v0.0.0-20230208214835-2f90fe2ac9bf/go.mod h1:Fz+2fjozH3xcxzBd1VA01g1+2iQZertdbKfDLNhJVyQ=
+github.com/Euvaz/Backstage-Hive/pkg v0.0.0-20230208220350-87758b5ac4fa h1:44577c9WdKadwDEhv/CE5IRDBrqnGuH/2c2uvohxR/E=
+github.com/Euvaz/Backstage-Hive/pkg v0.0.0-20230208220350-87758b5ac4fa/go.mod h1:Fz+2fjozH3xcxzBd1VA01g1+2iQZertdbKfDLNhJVyQ=
 github.com/benbjohnson/clock v1.1.0 h1:Q92kusRqC1XV2MjkWETPvjJVqKetz1OzxZB7mHJLju8=
 github.com/census-instrumentation/opencensus-proto v0.2.1/go.mod h1:f6KPmirojxKA12rnyqOA5BBL4O983OfeGPqjHWSTneU=
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
