@@ -3,8 +3,8 @@ module github.com/Euvaz/Backstage-Drone
 go 1.19
 
 require (
-	github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230205223332-78565e5387e8
-	github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208021402-ec1779aa6e8c
+	github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208042724-a8d7b4a22d68
+	github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208042724-a8d7b4a22d68
 	github.com/spf13/cobra v1.6.1
 	github.com/spf13/viper v1.15.0
 )

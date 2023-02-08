@@ -23,6 +23,8 @@ func main() {
         logger.Fatal(err.Error())
     }
 
+    viper.SetDefault("host", "localhost")
+    viper.SetDefault("port", 3894)
     viper.SetDefault("name", "drone-1")
 
     // Add root command
@@ -44,7 +46,8 @@ func main() {
         Long:  `Long Desc`,
         Args: cobra.ExactArgs(1),
         Run: func(cmd *cobra.Command, args []string) {
-            var token models.Token
+            var recvToken models.Token
+
             tokenEncoded := strings.Join(args, " ")
 
             // Decode Base64 token string
@@ -54,24 +57,24 @@ func main() {
             }
 
             // Convert []Byte type to Token
-            err = json.Unmarshal(tokenBytes, &token)
+            err = json.Unmarshal(tokenBytes, &recvToken)
             if err != nil {
                 logger.Fatal(err.Error())
             }
 
             // POST request
             // JSON body
-            body := []byte(fmt.Sprintf(`{"key":"%s"}`, token.Key))
+            dlvrToken, err := json.Marshal(models.Token{Addr: viper.GetString("host"), Port: viper.GetInt("port"), Key: recvToken.Key})
             
             // Convert String type to URL
-            postUrl, err := url.Parse(fmt.Sprintf("http://%s/drones/%s", token.Addr, viper.GetString("name")))
+            postUrl, err := url.Parse(fmt.Sprintf("http://%s:%d/drones/%s", recvToken.Addr, recvToken.Port, viper.GetString("name")))
             if err != nil {
                 logger.Fatal(err.Error())
             }
             fmt.Println(postUrl)
 
             // Create an HTTP post request
-            r, err := http.NewRequest("POST", postUrl.String(), bytes.NewBuffer(body))
+            r, err := http.NewRequest("POST", postUrl.String(), bytes.NewBuffer(dlvrToken))
             if err != nil {
                 logger.Fatal(err.Error())
             }
