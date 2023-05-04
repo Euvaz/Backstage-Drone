@@ -9,9 +9,9 @@ import (
     "net/http"
     "strings"
 
-    "github.com/Euvaz/Backstage-Hive/logger"
     "github.com/Euvaz/Backstage-Hive/models"
     "github.com/Euvaz/Backstage-Hive/pkg"
+    "github.com/Euvaz/go-log"
     "github.com/spf13/cobra"
     "github.com/spf13/viper"
 )

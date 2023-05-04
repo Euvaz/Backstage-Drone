@@ -3,14 +3,15 @@ module github.com/Euvaz/Backstage-Drone
 go 1.19
 
 require (
-	github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208220350-87758b5ac4fa
 	github.com/Euvaz/Backstage-Hive/models v0.0.0-20230208193635-92c061e3b302
+	github.com/Euvaz/Backstage-Hive/pkg v0.0.0-20230208220350-87758b5ac4fa
+	github.com/Euvaz/go-log v0.0.0-20230504204439-c235cc31d2de
 	github.com/spf13/cobra v1.6.1
 	github.com/spf13/viper v1.15.0
 )
 
 require (
-	github.com/Euvaz/Backstage-Hive/pkg v0.0.0-20230208220350-87758b5ac4fa // indirect
+	github.com/Euvaz/Backstage-Hive/logger v0.0.0-20230208220350-87758b5ac4fa // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
